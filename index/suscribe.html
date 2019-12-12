@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="../css/identification.css">
+</head>
+<body>
+    <div id="login">
+        <!-- zone d'inscrition -->
+                
+        <form action="" method="POST">
+            <h1>Inscription</h1>
+                    
+            <label>Nom d'utilisateur</label>
+            <input type="text" placeholder="Entrer le nom d'utilisateur" name="user_name" id="user_name" required>
+                    
+            <label>Adresse mail</label>
+            <input type="email" placeholder="Entrer votre adresse mail" name="mail" id='mail' required>
+
+            <label>Mot de passe</label>
+            <input type="password" placeholder="Entrer le mot de passe" name="password" id="pass" required>
+            <input type="password" placeholder="Recrivez le mot de passe" name="password" id="pass1" required>
+                    <!-- button -->
+            <input type="button" id='submit' value='INSCRIPTION' >
+                    <!-- lien -->
+            <p>Déjà inscrit ? <a href="./login.html">Cliquez ici</a></p>
+        </form>
+    </div>
+
+    <script src="../src/lib/all.min.js"></script>
+    <script src="../src/jquery.js"></script>
+    <script src="../src/kwick.js"></script>
+    <script>
+        $(document).ready(function(){
+            app.init();
+        });
+    </script>
+</body>
+</html>

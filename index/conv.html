@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Conversation</title>
+    <link rel="stylesheet" href="../css/conv.css">
+</head>
+<body>
+    <div id="main-container">
+        <div id="condis">
+            <div id="contact">
+                <div id="titre">
+                    <h2>contact</h2>
+                </div>
+                <div id="container-contact">
+                    <div id="connecter"></div>
+                         <img src="../assets/stormtrooper.gif" alt="stormtrooper">
+                        <p>XXX</p>
+                    </div>
+                <div id="container-contact">
+                    <div id="connecter"></div>
+                        <img src="../assets/stormtrooper.gif" alt="stormtrooper">
+                        <p>XXX</p>
+                    </div>
+                <div id="container-contact">
+                    <div id="connecter"></div>
+                        <img src="../assets/stormtrooper.gif" alt="stormtrooper">
+                        <p>XXX</p>
+                    </div>
+            </div>
+            <div id="discussion">
+                <div id="container-nav">
+                    <div id="nav">
+                        <div id="empire">
+                            <img src="../assets/empire.png" alt="logo de l'empire">
+                        </div>
+                               
+                        <div id="talk">
+                            <div id="connecter-talk"></div>
+                                <img src="../assets/stormtrooper.gif" alt="stormtrooper">
+                                <p>XXX</p>
+                            </div>
+                            <div id="barre">
+                                <input type="search" placeholder="Votre recherche ici" id="site-search" name="recherche">
+                                <a href="#site-search"><i class="fas fa-search" id="search"></i></a>
+                            </div>
+                            <div id="power-off">
+                                    <!-- <i class="fas fa-power-off" id="logout"></i> -->
+                                    <input type="button" name="deco" id="logout" value="Deconnexion">
+                            </div>
+                    </div>
+                </div>
+                
+                <div id="bulle-discussion">
+                    <div id="utilisateur">
+                            <img src="../assets/vador.gif" alt="Dark Vador">
+                        <div id="bulle">
+                            <p>Vous en êtes ou soldat ?</p>
+                        </div>
+                    </div>
+                    <div id="autre">
+                            <img src="../assets/stormtrooper.gif" alt="stormtrooper">
+                        <div id="bulle-autre">
+                            <p>Seigneur Vador le petit bonhomme vert nous donne du fil a redordre</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="bottom">
+                    <div id="ecrit">
+                        <input type="text" placeholder="Ecrivez votre texte ici" name="text" id="text">
+                        <input type="button" id="Envoyez" value="ENVOYEZ">
+                        <!-- <label for=""><i class="fas fa-paperclip" id="paperclip"></i></label> -->
+                        
+                        <!-- <input type="submit" id="envoyer" value="ENVOYER"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../src/lib/all.min.js"></script>
+    <script src="../src/jquery.js"></script>
+    <script src="../src/kwick.js"></script>
+    <script>
+            $(document).ready(function() {
+                app.init();
+            });
+    </script>
+</body>
+</html>

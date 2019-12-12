@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/identification.css">
+</head>
+<body>
+    <div id="login">
+        <!-- zone de connexion -->
+                
+        <form action="" method="POST">
+            <h1>Connexion</h1>
+                    
+            <label>Nom d'utilisateur</label>
+            <input type="text" placeholder="Entrer le nom d'utilisateur"  id="log_name" name="username" required>
+                    
+            <label>Mot de passe</label>
+            <input type="password" placeholder="Entrer le mot de passe" id="log_pass" name="password" required>
+                    <!-- button -->
+            <input type="button" id='connexion' value='CONNEXION'>
+                    <!-- lien -->
+            <p>Pas encore inscrit ? <a href="./suscribe.html">Cliquez ici</a></p>
+        </form>
+    </div>
+
+    <script src="../src/lib/all.min.js"></script>
+    <script src="../src/jquery.js"></script>
+    <script src="../src/kwick.js"></script>
+    <script>
+        $(document).ready(function() {
+				app.init();
+			});
+    </script>
+</body>
+</html>
