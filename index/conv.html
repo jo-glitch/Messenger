@@ -58,7 +58,7 @@
                     <div id="utilisateur">
                             <img src="../assets/vador.gif" alt="Dark Vador">
                         <div id="bulle">
-                            <p class="text-ecrit">Vous en êtes ou soldat ?</p>
+                            <p class="text-ecrit"></p>
                         </div>
                     </div>
                     <!-- <div id="autre">
@@ -94,6 +94,8 @@
             $(document).ready(function() {
                 app.init();
                 app.logged();
+                setInterval(app.timestamp(),500);
+		         
             });
     </script>
 </body>
