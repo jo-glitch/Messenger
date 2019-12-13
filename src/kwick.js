@@ -2,14 +2,12 @@ const app = {
 	kwick_api_url: 'http://greenvelvet.alwaysdata.net/kwick/api/',
 	init: function() {
 		
-
-		// $('#submit').on('click', app.signup);
 		// app.ping();
 		$('#submit').on('click', app.signup);
 		$("#connexion").on('click', app.login);
 		$("#logout").on('click',app.logout);
-		$('#contact').on('click',app.logged);
-		// $("#contact");
+		$('#envoyez').on('click', app.say);
+		app.timestamp();
 
 	},
 	ping: function() {
@@ -31,29 +29,21 @@ const app = {
     signup: function() {
 		let user_name = $('#user_name').val();
 		let password = $('#pass').val();
-		// let password1 = $('#pass1').val();
-		let email = $('#mail').val();
         $.ajax({
-			url: app.kwick_api_url + 'signup' + '/' + user_name + '/' + password,
+			url: app.kwick_api_url + 'signup/' + user_name + '/' + password,
 			dataType: "jsonp", // jsonp
 			type: "POST",
 			contentType: "application/json; charset=utf-8",
 			success: function (result, status, xhr) {
 				localStorage.setItem('name', result.result.token);
-                localStorage.setItem('email', result.result.token);
 				localStorage.setItem('password', result.result.id);
 				//affichage
-				// localStorage.getItem('name', user_name);
-				// localStorage.getItem('email', email);
-				// localStorage.getItem('password', password);
-				console.log(localStorage.getItem('name', user_name));
-				console.log(localStorage.getItem('email', email));
-				console.log(localStorage.getItem('password', password));
+				
+				// console.log(localStorage.getItem('name', user_name));
+				// console.log(localStorage.getItem('email', email));
+				// console.log(localStorage.getItem('password', password));
 				window.location.href = 'conv.html'
-				// alert("vous êtes bien inscrit");
-				// $.get( "conv.html", function( data ) {
-				// 	$( "body" ).html( data );
-				//   });
+				
 				console.log(result);
 			},
 			error: function (xhr, status, error) {
@@ -66,17 +56,18 @@ const app = {
 		let login_name = $('#log_name').val();
 		let login_pass = $('#log_pass').val();
 		$.ajax({
-			url: app.kwick_api_url + 'login' + '/' + login_name + '/' + login_pass,
+			url: app.kwick_api_url + 'login/' + login_name + '/' + login_pass,
 			dataType: 'jsonp',
 			type: 'POST',
 			contentType: "application/json; charset=utf-8",
 			success: function(result, status, xhr){
 				// stockage de données
 				localStorage.setItem('token', result.result.token);
+				localStorage.setItem('name', result.result.user);
 				localStorage.setItem('id', result.result.id);
 				// affichage
-				console.log(localStorage.getItem('id', login_name));
-				console.log(localStorage.getItem('token', login_pass));
+				// console.log(localStorage.getItem('id', login_name));
+				// console.log(localStorage.getItem('token', login_pass));
 				window.location.href = 'conv.html'
 				console.log(result);
 				
@@ -91,7 +82,7 @@ const app = {
 		 let token = localStorage.getItem('token');
 		 let id = localStorage.getItem('id');
 	 	$.ajax({
-			url : app.kwick_api_url + 'logout' + '/' + token + '/' + id,
+			url : app.kwick_api_url + 'logout/' + token + '/' + id,
 	 		dataType: 'jsonp',
 	 		type: 'POST',
 	 		contentType: "application/json; charset=utf-8",
@@ -107,16 +98,24 @@ const app = {
 	 },
 	 logged: function(){
 		let token = localStorage.getItem('token');
+		let name = localStorage.getItem('name');
 		 $.ajax({
-			url : app.kwick_api_url + 'user/' + 'logged/' + token,
+			url : app.kwick_api_url + 'user/logged/' + token,
 	 		dataType: 'jsonp',
 	 		type: 'POST',
 			 contentType: "application/json; charset=utf-8",
 			 success: function(result, status, xhr){
-
-				// window.location.href = 'login.html';
-				
 				console.log(result);
+				for(let i = 0; i < result.result.user.length; i++){
+					// if(result.result.user[i] == name){
+					// 	// $('#titre').after('<div class=\"container-contact\">\
+					// 	// <div class="connecter"></div><img src="../assets/stormtrooper.gif" alt="stormtrooper">' + result.result.user[i] +'</div>')
+					// 	// continue;
+					// }
+					$('#titre').after('<div class=\"container-contact\">\
+					 <div class="connecter"></div><img src="../assets/stormtrooper.gif" alt="stormtrooper" style=\'margin-right=10px\'>' + result.result.user[i] + '</div>');
+				}
+				
 				
 	 		},
 	 		error: function(xhr, status, error){
@@ -124,5 +123,47 @@ const app = {
 	 		}
 	 	});
 	 },
+	 say: function(){
+		let token = localStorage.getItem('token');
+		let id = localStorage.getItem('id');
+		let message = $('#text').val();
+		console.log(message);
+		// if(message == true){
+			$.ajax({
+				url : app.kwick_api_url + 'say/' + token + '/' + id + '/' + message,
+				 dataType: 'jsonp',
+				 type: 'POST',
+				contentType: "application/json; charset=utf-8",
+				success: function(result, status, xhr){
+	
+					console.log(result);
+					
+				 },
+				 error: function(xhr, status, error){
+					 console.log("error");
+				 }
+			 });
+		// }
+		},
+		timestamp: function(){
+			let token = localStorage.getItem('token');
+			let id = localStorage.getItem('id');
+			let timestamp = 0;
+				$.ajax({
+					url : app.kwick_api_url + 'talk/list/'+ token + '/' + timestamp,
+					 dataType: 'jsonp',
+					 type: 'POST',
+					contentType: "application/json; charset=utf-8",
+					success: function(result, status, xhr){
+		
+						console.log(result);
+						
+					 },
+					 error: function(xhr, status, error){
+						 console.log("error");
+					 }
+				 });
+			},
+		 
 	
 };

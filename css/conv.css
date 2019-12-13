@@ -21,6 +21,7 @@ body{
     text-transform: uppercase;
     /* border: 1px solid; */
     background-color: #333138;
+    overflow: scroll;
 }
 #titre{
     width: 100%;
@@ -29,7 +30,7 @@ body{
     display: flex;
     justify-content: center;
 }
-#container-contact{
+.container-contact{
     height: 10%;
     width: 100%;
     border: 1px solid grey;
@@ -39,7 +40,7 @@ body{
     border-radius: 5px;
 
 }
-#container-contact #connecter{
+.container-contact .connecter{
     height: 15px;
     width: 15px;
     border: 1px solid;
@@ -47,13 +48,13 @@ body{
     background-color: green;
     margin-left: 15px;
 }
-#container-contact img{
+.container-contact img{
     height: 40px;
     width: 40px;
     margin-left: 5px;
     border-radius: 50%;
 }
-#container-contact p {
+.container-contact p {
     margin-left: 50px;
 }
 

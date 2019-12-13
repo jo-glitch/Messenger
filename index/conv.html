@@ -14,20 +14,20 @@
                 <div id="titre">
                     <h2>contact</h2>
                 </div>
-                <div id="container-contact">
-                    <div id="connecter"></div>
+                <div class="container-contact">
+                    <div class="connecter"></div>
                          <img src="../assets/stormtrooper.gif" alt="stormtrooper">
-                        <p>XXX</p>
+                        <p class="prenom">XXX</p>
                     </div>
-                <div id="container-contact">
-                    <div id="connecter"></div>
+                <div class="container-contact">
+                    <div class="connecter"></div>
                         <img src="../assets/stormtrooper.gif" alt="stormtrooper">
-                        <p>XXX</p>
+                        <p class="prenom">XXX</p>
                     </div>
-                <div id="container-contact">
-                    <div id="connecter"></div>
+                <div class="container-contact">
+                    <div class="connecter"></div>
                         <img src="../assets/stormtrooper.gif" alt="stormtrooper">
-                        <p>XXX</p>
+                        <p class="prenom">XXX</p>
                     </div>
             </div>
             <div id="discussion">
@@ -47,8 +47,8 @@
                                 <a href="#site-search"><i class="fas fa-search" id="search"></i></a>
                             </div>
                             <div id="power-off">
-                                    <!-- <i class="fas fa-power-off" id="logout"></i> -->
-                                    <input type="button" name="deco" id="logout" value="Deconnexion">
+                                    <i class="fas fa-power-off" id="logout"></i>
+                                    <!-- <input type="button" name="deco" id="logout" value="Deconnexion"> -->
                             </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                 <div id="bottom">
                     <div id="ecrit">
                         <input type="text" placeholder="Ecrivez votre texte ici" name="text" id="text">
-                        <input type="button" id="Envoyez" value="ENVOYEZ">
+                        <input type="button" id="envoyez" value="ENVOYEZ">
                         <!-- <label for=""><i class="fas fa-paperclip" id="paperclip"></i></label> -->
                         
                         <!-- <input type="submit" id="envoyer" value="ENVOYER"> -->
@@ -88,6 +88,7 @@
     <script>
             $(document).ready(function() {
                 app.init();
+                app.logged();
             });
     </script>
 </body>
