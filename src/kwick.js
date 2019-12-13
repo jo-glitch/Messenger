@@ -7,7 +7,9 @@ const app = {
 		$("#connexion").on('click', app.login);
 		$("#logout").on('click',app.logout);
 		$('#envoyez').on('click', app.say);
-		app.timestamp();
+		setTimeout(() => {
+			app.timestamp();
+		}, 3000);;
 
 	},
 	ping: function() {
@@ -66,8 +68,6 @@ const app = {
 				localStorage.setItem('name', result.result.user);
 				localStorage.setItem('id', result.result.id);
 				// affichage
-				// console.log(localStorage.getItem('id', login_name));
-				// console.log(localStorage.getItem('token', login_pass));
 				window.location.href = 'conv.html'
 				console.log(result);
 				
@@ -107,13 +107,9 @@ const app = {
 			 success: function(result, status, xhr){
 				console.log(result);
 				for(let i = 0; i < result.result.user.length; i++){
-					// if(result.result.user[i] == name){
-					// 	// $('#titre').after('<div class=\"container-contact\">\
-					// 	// <div class="connecter"></div><img src="../assets/stormtrooper.gif" alt="stormtrooper">' + result.result.user[i] +'</div>')
-					// 	// continue;
-					// }
+
 					$('#titre').after('<div class=\"container-contact\">\
-					 <div class="connecter"></div><img src="../assets/stormtrooper.gif" alt="stormtrooper" style=\'margin-right=10px\'>' + result.result.user[i] + '</div>');
+					 <div class=\"connecter\"></div><img src=\"../assets/stormtrooper.gif\" alt="stormtrooper"<p class=\"prenom\" style=\'margin-right:30px\'>' + result.result.user[i] + '</p></div>');
 				}
 				
 				
@@ -135,7 +131,7 @@ const app = {
 				 type: 'POST',
 				contentType: "application/json; charset=utf-8",
 				success: function(result, status, xhr){
-	
+					
 					console.log(result);
 					
 				 },
@@ -155,7 +151,9 @@ const app = {
 					 type: 'POST',
 					contentType: "application/json; charset=utf-8",
 					success: function(result, status, xhr){
-		
+						for(let i = 0; i < result.result.talk.length; i++){
+							$('#repeat').after('<div id=\"bulle-discussion\"><div id=\"utilisateur\"> <img src=\"../assets/vador.gif" alt="Dark Vador\"><div id=\"bulle\"><p class=\"text-ecrit\">' + result.result.talk[i] + '</p></div><div>')
+						}
 						console.log(result);
 						
 					 },
